@@ -1,9 +1,13 @@
-function add(a = 0, b = 0) {
-    var s = 0;
-    for (var i=0; i < arguments.length; i++) {
-        s += arguments[i];
-    }
-    return s;
+// function add(a = 0, b = 0) {
+//     var s = 0;
+//     for (var i=0; i < arguments.length; i++) {
+//         s += arguments[i];
+//     }
+//     return s;
+// }
+
+function add(...values) {
+    return values.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 }
 
 function subtract(a = 0, b = 0) {
