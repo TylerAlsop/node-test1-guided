@@ -1,0 +1,65 @@
+const calculator = require("./calculator")
+
+
+describe("calculator unit tests", () => {
+    it("adds", () => {
+        expect(calculator.add(1, 1)).toBe(2)
+        expect(calculator.add(2, 2)).toBe(4)
+        expect(calculator.add(1, 3)).toBe(4)
+        expect(calculator.add(0, 2)).toBe(2)
+        expect(calculator.add(-1, 2)).toBe(1)
+        expect(calculator.add(-1, 1)).toBe(0)
+        expect(calculator.add(2)).toBe(2)
+        expect(calculator.add()).toBe(0)
+        expect(calculator.add(.5, .5)).toBe(1)
+        expect(calculator.add(1, 1, 1, 1, 1)).toBe(5)
+        expect(calculator.add(1, 2, 3, 4, 5, 6, 7, 8, 9)).toBe(45)
+    })
+    
+    
+    it("subtracts", () => {
+        expect(calculator.subtract(1, 1)).toBe(0)
+        expect(calculator.subtract(5, 1)).toBe(4)
+        expect(calculator.subtract(1, 10)).toBe(-9)
+        expect(calculator.subtract(1, 1)).toBe(0)
+        expect(calculator.subtract(-5, -8)).toBe(3)
+        expect(calculator.subtract(-6, 9)).toBe(-15)
+        expect(calculator.subtract(6, -21)).toBe(27)
+        expect(calculator.subtract(1, 1)).toBe(0)
+        expect(calculator.subtract(2, 2)).toBe(0)
+        expect(calculator.subtract(1, 3)).toBe(-2)
+        expect(calculator.subtract(0, 2)).toBe(-2)
+        expect(calculator.subtract(-1, 2)).toBe(-3)
+        expect(calculator.subtract(-1, 1)).toBe(-2)
+        expect(calculator.subtract(2)).toBe(2)
+        expect(calculator.subtract()).toBe(0)
+        expect(calculator.subtract(.5, .5)).toBe(0)
+    })
+
+    it("multiplies", () => {
+        expect(calculator.multiply(1, 1)).toBe(1)
+        expect(calculator.multiply(2, 2)).toBe(4)
+        expect(calculator.multiply(1, 3)).toBe(3)
+        expect(calculator.multiply(0, 2)).toBe(0)
+        expect(calculator.multiply(-1, 2)).toBe(-2)
+        expect(calculator.multiply(-1, 1)).toBe(-1)
+        expect(calculator.multiply(2)).toBe(2)
+        expect(calculator.multiply()).toBe(1)
+        expect(calculator.multiply(.5, .5)).toBe(.25)
+    })
+
+    it("divides", () => {
+        expect(calculator.divide(1, 1)).toBe(1)
+        expect(calculator.divide(2, 2)).toBe(1)
+        expect(calculator.divide(1, 3)).toBe(1/3)
+        expect(calculator.divide(0, 2)).toBe(0)
+        expect(calculator.divide(-1, 2)).toBe(-.5)
+        expect(calculator.divide(-1, 1)).toBe(-1)
+        expect(calculator.divide(2)).toBe(2)
+        expect(calculator.divide()).toBe(1)
+        expect(calculator.divide(.5, .5)).toBe(1)
+        expect(() => calculator.divide(3, 0)).toThrow()
+        expect(() => calculator.divide("hello", "world")).toThrow()
+    })
+
+})
